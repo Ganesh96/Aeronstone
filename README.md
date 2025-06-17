@@ -1,37 +1,78 @@
-## Welcome to GitHub Pages
+# Aeronstone
 
-You can use the [editor on GitHub](https://github.com/Ganesh96/Aeronstone/edit/master/README.md) to maintain and preview the content for your website in Markdown files.
+Welcome to **Aeronstone**! This is a fast-paced, two-player dueling game that runs directly in the Windows command prompt. Built with modern C++, it uses classic ASCII graphics combined with a flicker-free rendering engine to create a smooth, real-time arcade experience.
 
-Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
+## Features
 
-### Markdown
+* **Real-time, Two-Player Action:** Challenge a friend in a head-to-head duel on the same keyboard.
+* **Flicker-Free Rendering:** A double-buffered rendering engine ensures smooth animations with no visual artifacts.
+* **Color & Sound:** The command-line interface is brought to life with distinct colors for each player and simple sound effects for key actions.
+* **Scoring System:** Be the first player to score 5 points to win the match.
+* **Modern C++ Design:** The game is built with an object-oriented structure, making it clean, easy to read, and simple to expand with new features.
 
-Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
+## How to Play
 
-```markdown
-Syntax highlighted code block
+The goal is to hit your opponent with a projectile before they hit you. The first player to reach 5 points wins.
 
-# Header 1
-## Header 2
-### Header 3
+## Controls
 
-- Bulleted
-- List
+| Action    | Player 1 (Left) | Player 2 (Right) |
+| --------- | --------------- | ---------------- |
+| Move Up   | W               | O                |
+| Move Down | S               | L                |
+| Shoot     | D               | K                |
 
-1. Numbered
-2. List
+> Press `ESC` at any time to quit the game.
 
-**Bold** and _Italic_ and `Code` text
+## How to Compile and Run
 
-[Link](url) and ![Image](src)
-```
+This project is designed for Windows and is compiled using the G++ compiler from an MSYS2 environment.
 
-For more details see [GitHub Flavored Markdown](https://guides.github.com/features/mastering-markdown/).
+### Prerequisites
 
-### Jekyll Themes
+You need to have MSYS2 with the MinGW-w64 UCRT64 toolchain installed. If you haven't set this up yet, follow these steps:
 
-Your Pages site will use the layout and styles from the Jekyll theme you have selected in your [repository settings](https://github.com/Ganesh96/Aeronstone/settings). The name of this theme is saved in the Jekyll `_config.yml` configuration file.
+1. **Install MSYS2:** Download and run the installer from [msys2.org](https://www.msys2.org).
+2. **Update MSYS2:** Open the MSYS2 MSYS terminal from the Start Menu and run:
 
-### Support or Contact
+   ```bash
+   pacman -Syu
+   ```
 
-Having trouble with Pages? Check out our [documentation](https://help.github.com/categories/github-pages-basics/) or [contact support](https://github.com/contact) and we’ll help you sort it out.
+   You may need to close and re-open the terminal to run it a second time to complete all updates.
+3. **Install Compiler:** Open the MSYS2 UCRT64 terminal from the Start Menu and run:
+
+   ```bash
+   pacman -S mingw-w64-ucrt-x86_64-toolchain
+   ```
+
+### Compilation Steps
+
+1. **Open the Correct Terminal:** Open the MSYS2 UCRT64 terminal from your Start Menu.
+
+2. **Navigate to Project Folder:** Use the `cd` command to navigate to the directory where you saved `aeronstone_v2.cpp`.
+
+   ```bash
+   # Example: If your project is on your desktop in a folder named 'Aeronstone'
+   cd /c/Users/YourUsername/Desktop/Aeronstone
+   ```
+
+3. **Compile the Code:** Run the following `g++` command. This will create an executable file named `aeronstone.exe`.
+
+   ```bash
+   g++ -o aeronstone.exe aeronstone_v2.cpp -static-libgcc -static-libstdc++
+   ```
+
+4. **Run the Game:** Launch the game from the same terminal:
+
+   ```bash
+   ./aeronstone.exe
+   ```
+
+## Future Ideas
+
+Aeronstone is built to be easily expandable. Here are some features that could be added next:
+
+* **Power-ups:** Speed boosts, shields, or multi-shot abilities that appear randomly.
+* **Obstacles:** Static or moving blocks in the center of the screen to make duels more challenging.
+* **High Score Persistence:** Save the top scores to a file so they aren't lost when the game closes.
